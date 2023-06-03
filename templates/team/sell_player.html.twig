@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sell/Buy Player{% endblock %}
+{% block sub_title %}Sell/Buy Player{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Player Names</th>
+            <th>Team</th>
+            <th>On sale</th>
+            <th>Amount to pay</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for index, player in players %}
+            <tr>
+                <td>{{ index+1 }}</td>
+                <td>{{ player.name }} {{ player.surname }}</td>
+                {% if player.team is not null %}
+                    <td>{{ player.team.name }}</td>
+                    <td>Yes</td>
+                    <td>1000 000 USD</td>
+                    <td>
+                        <form class="buy-player_form" action="/teams/{{ player.team.id }}/buy-player/{{ player.id }}"
+                              method="post">
+                            <label for="buying-team">Select the buying team</label>
+                            <select class="teams_selection" name="buying_team" id="buying-team">
+                                {% for team in teams %}
+                                    <option value="{{ team.id }}">{{ team.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="number" value="100000" name="buying_cost" hidden="hidden">
+                            <button type="submit">Buy</button>
+                        </form>
+                    </td>
+                {% else %}
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

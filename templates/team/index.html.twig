@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Teams With Players{% endblock %}
+{% block sub_title %}All Teams With Players{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Money Balance</th>
+            <th>Players</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for index, team in teams %}
+            <tr>
+                <td>{{ index+1 }}</td>
+                <td>{{ team.name }}</td>
+                <td>{{ team.country }}</td>
+                <td>{{ team.moneyBalance }}</td>
+                <td>
+                    <ul>
+                        {% for player in team.players %}
+                            <li>{{ player.name }} {{ player.surname }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    
+    <div class="paginator-links">
+        <a class="menu_item" href="/teams?max_page={{ currentPage - perPageItems }}">Prev Page</a>
+        <a class="menu_item" href="/teams?max_page={{ currentPage + perPageItems}}">Next Page</a>
+    </div>
+
+{% endblock %}

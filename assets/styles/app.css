@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgray;
+    font-family: "Comic Sans MS", ui-monospace;
+    padding: 40px 100px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_nav-menu {
+    display: flex;
+}
+
+.header_nav-menu .menu_item {
+    color: #333;
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #4444;
+    border-radius: 5px;
+}
+
+.container {
+    margin: 40px 100px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px solid #444;
+    padding: 10px;
+}
+
+form, #team_form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    height: 30px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+input, .players_section {
+    height: 30px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+.players_section {
+    height: 100px !important;
+}
+
+
+.buy-player_form > button {
+    width: 200px;
+}
+
+.teams_selection {
+    width: 200px;
+    height: 30px;
+    margin: 10px 0
+}
+
+.form_submit-btn {
+    height: 30px;
+    width: 150px;
+}
+
+.paginator-links {
+    margin-top: 20px;
+    display: flex;
+}
+
+.paginator-links a {
+    color: #444;
+    margin: 0  10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+

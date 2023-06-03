@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Team{% endblock %}
+{% block sub_title %}Add New Team{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+
+    <label for="players">Players</label>
+    <select class="players_section" name="players[]" id="players" multiple>
+        {% for player in players %}
+            <option value="{{ player.id }}">{{ player.surname }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" class="form_submit-btn">Save</button>
+
+    {{ form_end(form) }}
+
+{% endblock %}
